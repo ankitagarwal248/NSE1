@@ -2,6 +2,8 @@ require "nse1/version"
 require 'rubygems'
 require 'crack'
 require 'open-uri'
+require 'nokogiri'
+
 
 module Nse1
 	class Stock
@@ -69,6 +71,24 @@ module Nse1
 	  	else
 	  		return "some problem with the quote #{@symbol}"	
 	  	end	
+	  end
+
+
+	  def sector
+	  		# @symboll = "SBIN"
+			base_url_sector = "http://www.moneycontrol.com/mccode/common/autosuggesion.php?query=#{@symbol}&type=1&format=json&callback=suggest1"
+			# puts base_url_sector
+			page_sector = Nokogiri::HTML(open(base_url_sector))
+			# puts page_sector
+					
+			link_suffix_sector =  page_sector.text.split("{")[1].split(",")[0].split(":")[2].gsub!("\"","")
+			# puts link_suffix_sector
+			full_link_sector = "http:"+link_suffix_sector
+			# puts full_link_sector
+
+			page = Nokogiri::HTML(open(full_link_sector))
+			sector_name = page.css("div.FL").css("div.gry10")[0].text.split("|")[3].split(":")[1].strip
+			return sector_name
 	  end
 
 	  def change

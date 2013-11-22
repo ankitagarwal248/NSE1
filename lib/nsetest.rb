@@ -1,14 +1,16 @@
 load 'nse1.rb'
 
 
-=begin
 
-a = Nse1::Stock.new("APLAB")
+
+a = Nse1::Stock.new("sbin")
 p a.last
-has = a.fulljson
-p has["lastUpdateTime"]
+p a.sector
 
-=end
+# has = a.fulljson
+# p has["lastUpdateTime"]
+
+
 
 =begin
  has.each do |key, value|
@@ -73,9 +75,8 @@ else
 end
 =end
 
+=begin
 require 'csv'
-
- 
 
 csv_text = File.read('stocks.csv')
 
@@ -115,6 +116,7 @@ CSV.open("report.csv", "wb") do |csvs|
    end
 
 end
+=end
 
 
 
@@ -123,8 +125,54 @@ require 'nokogiri'
 require 'open-uri'
 require 'restclient'
 
-PAGE_URL = "http://www.moneycontrol.com/stock-charts/statebankindia/charts/SBI"
-page = Nokogiri::HTML(open(PAGE_URL))
-puts page.css("div.FL").css("div.gry10")[0].text.split("|")[3].split(":")[1]
+# PAGE_URL = "http://www.moneycontrol.com/india/stockpricequote/bankspublicsector/statebankindia/SBI"
+# page = Nokogiri::HTML(open(PAGE_URL))
+# puts page.css("div.FL").css("div.gry10")[0].text.split("|")[3].split(":")[1].strip
+
+# AXIS BANK
+
+require "nse1/version"
+require 'rubygems'
+require 'crack'
+require 'open-uri'
+
+# http://www.moneycontrol.com/mccode/common/autosuggesion.php?query=AXISBANK&type=1&format=json&callback=suggest1
+			# @symbol = symbol
+			
+			# base_url_suffix = "&series=EQ"
+			# full_url = base_url+@symbol
+
+			# content = open(base_url).read
+			# @parsed_local_content = Crack::JSON.parse(content)
+			# p @parsed_local_content
+
+	# @symboll = "SBIN"
+	# base_url = "http://www.moneycontrol.com/mccode/common/autosuggesion.php?query=#{@symboll}&type=1&format=json&callback=suggest1"
+	# page = Nokogiri::HTML(open(base_url))
+			
+	# link_suffix =  page.text.split("{")[1].split(",")[0].split(":")[2].gsub!("\"","")
+	# # puts link_suffix
+	# full_link = "http:"+link_suffix
+	# # puts full_link
+
+	# page = Nokogiri::HTML(open(full_link))
+	# puts page.css("div.FL").css("div.gry10")[0].text.split("|")[3].split(":")[1].strip
+
+
+
+
+		 #  	 @symboll = "SBIN"
+			# base_url_sector = "http://www.moneycontrol.com/mccode/common/autosuggesion.php?query=#{@symboll}&type=1&format=json&callback=suggest1"
+			# puts base_url_sector
+			# page_sector = Nokogiri::HTML(open(base_url_sector))
+			# puts page_sector
+					
+			# link_suffix_sector =  page_sector.text.split("{")[1].split(",")[0].split(":")[2].gsub!("\"","")
+			# puts link_suffix_sector
+			# full_link_sector = "http:"+link_suffix_sector
+			# puts full_link_sector
+
+			# page = Nokogiri::HTML(open(full_link_sector))
+			# puts page.css("div.FL").css("div.gry10")[0].text.split("|")[3].split(":")[1].strip
 
 
