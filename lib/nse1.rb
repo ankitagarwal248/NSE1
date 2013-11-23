@@ -58,7 +58,7 @@ module Nse1
 	  end
 
 	  def fulljson
-	  	@parsed_local_content
+	  	return @parsed_local_content
 	  end	
 
 	  def last
@@ -71,6 +71,10 @@ module Nse1
 	  	else
 	  		return "some problem with the quote #{@symbol}"	
 	  	end	
+	  end
+
+	  def symbol
+	  	return @symbol
 	  end
 
 
@@ -89,6 +93,10 @@ module Nse1
 			page = Nokogiri::HTML(open(full_link_sector))
 			sector_name = page.css("div.FL").css("div.gry10")[0].text.split("|")[3].split(":")[1].strip
 			return sector_name
+	  end
+
+	  def lastUpdateTime
+	  	return @parsed_local_content['lastUpdateTime']
 	  end
 
 	  def change

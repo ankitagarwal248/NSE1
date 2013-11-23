@@ -1,14 +1,29 @@
 load 'nse1.rb'
 
 
+=begin
 
+p Nse1::Stock.nifty
+p Nse1::Stock.list
 
-a = Nse1::Stock.new("sbin")
+a = Nse1::Stock.new("COX&KINGS")
+p a.symbol
 p a.last
 p a.sector
+p a.fullname
+p a.lastUpdateTime
+p a.change
+p a.volume
+p a.openPrice
+p a.low52
+p a.previousClose
+p a.high52
+p a.dayHigh
+p a.dayLow
+p a.fulljson
+=end
 
-# has = a.fulljson
-# p has["lastUpdateTime"]
+
 
 
 
@@ -174,5 +189,64 @@ require 'open-uri'
 
 			# page = Nokogiri::HTML(open(full_link_sector))
 			# puts page.css("div.FL").css("div.gry10")[0].text.split("|")[3].split(":")[1].strip
+
+
+require 'csv'
+
+csv_text = File.read('stocks.csv')
+
+csv = CSV.parse(csv_text, :headers => true)
+n= 0
+symbolsarr = []
+csv.each do |row|   
+	n=n+1
+	r = row['SYMBOL']
+    # puts "#{n}---#{row['SYMBOL']} -----------#{row['SERIES']}"
+    symbolsarr << r
+    p r
+
+    st = Nse1::Stock.new(r)
+    puts "#{n}----#{r}------#{st.sector}" 
+    
+end
+
+
+
+data = File.open("data.csv", "w")
+content = "ankit, agarwal"
+data.write(content)
+data.close
+
+
+=begin
+
+p symbolsarr
+c = 0
+csvfilearr = []
+symbolsarr.each do |name|
+	csv_fullname = Nse1::Stock.new(name).fullname
+	csv_sector = Nse1::Stock.new(name).sector
+	c= c+1
+	# if a == "some problem with the quote"
+	# 	p "some problem with the quote"
+	# else
+		p "#{c} ---#{csv_sector}----------------- #{name} ------------- #{csv_fullname}"
+	# end	
+
+	csvarr = [name,csv_fullname,csv_sector ]
+	csvfilearr << csvarr
+
+end
+
+
+CSV.open("nsedata_symbol_name_sector.csv", "wb") do |csvs|
+   csvs << ['SYMBOL','NAME', 'SECTOR']
+
+   csvfilearr.each do |line|
+   	csvs << line
+   end
+
+end
+=end
 
 
