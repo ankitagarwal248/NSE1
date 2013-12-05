@@ -18,24 +18,25 @@ Or install it yourself as:
 
 ## Usage
 
-p Nse1::Stock.nifty
-p Nse1::Stock.list
+    Nse1::Stock.nifty
+    Nse1::Stock.list
 
-a = Nse1::Stock.new("COX&KINGS")
-p a.symbol
-p a.last
-p a.sector
-p a.fullname
-p a.lastUpdateTime
-p a.change
-p a.volume
-p a.openPrice
-p a.low52
-p a.previousClose
-p a.high52
-p a.dayHigh
-p a.dayLow
-p a.fulljson
+    a = Nse1::Stock.new("COX&KINGS")
+
+     a.symbol
+     a.last
+     a.sector
+     a.fullname
+     a.lastUpdateTime
+     a.change
+     a.volume
+     a.openPrice
+     a.low52
+     a.previousClose
+     a.high52
+     a.dayHigh
+     a.dayLow
+     a.fulljson
 
 ## Contributing
 
