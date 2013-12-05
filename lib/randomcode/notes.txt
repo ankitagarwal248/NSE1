@@ -1,0 +1,15 @@
+remote is "nsegem"
+git remote add nsegem https://github.com/ankitagarwal248/NSE1.git
+git push -u nsegem master
+
+
+
+# bundle gem lorem ------> to create new gem
+# When it’s time to update our gem to a new version we can change the version number(/lib/lorem/version.rb) and republish the gem.
+# gem build lorem.gemspec  -------> to build gemfile (.gem) of the version specified in the version file. 
+# to add gem dependecies
+   |- spec.add_runtime_dependency "open-uri"
+   |- spec.add_development_dependency "rake"
+
+# $ bundle ---> to make sure we have all the required gem installed 
+# gem push yourgem-0.0.1.gem  ----> to push it to rubygems.org

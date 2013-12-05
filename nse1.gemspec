@@ -6,10 +6,10 @@ require 'nse1/version'
 Gem::Specification.new do |spec|
   spec.name          = "nse1"
   spec.version       = Nse1::VERSION
-  spec.authors       = ["rahul"]
-  spec.email         = ["rahul2501350@gmail.com"]
-  spec.description   = %q{some description}
-  spec.summary       = %q{some summary}
+  spec.authors       = ["Ankit Agarwal"]
+  spec.email         = ["ankitagarwal24.8@gmail.com"]
+  spec.description   = %q{NSE (National Stock Exchange of India) equity stock data from www.nseindia.com}
+  spec.summary       = %q{NSE (National Stock Exchange of India) equity stock data from www.nseindia.com}
   spec.homepage      = "http://tradeoo.in"
   spec.license       = "MIT"
 
@@ -19,5 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_runtime_dependency "nokogiri"
+  spec.add_runtime_dependency "crack"
+  # spec.add_runtime_dependency "open-uri"
   spec.add_development_dependency "rake"
 end
