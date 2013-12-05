@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Nse1::VERSION
   spec.authors       = ["Ankit Agarwal"]
   spec.email         = ["ankitagarwal24.8@gmail.com"]
-  spec.description   = %q{NSE (National Stock Exchange of India) equity stock data from www.nseindia.com}
-  spec.summary       = %q{NSE (National Stock Exchange of India) equity stock data from www.nseindia.com}
-  spec.homepage      = "http://tradeoo.in"
+  spec.description   = %q{NSE (National Stock Exchange of India) equity stock data from www.nseindia.com. Originally developed for www.tradeoo.in}
+  spec.summary       = %q{NSE (National Stock Exchange of India) equity stock data from www.nseindia.com. Originally developed for www.tradeoo.in}
+  spec.homepage      = "https://github.com/ankitagarwal248/NSE1"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

@@ -1,6 +1,7 @@
 # Nse1
 
-A Ruby gem for equity stock data from www.nseindia.com 
+A Ruby gem for equity stock data from www.nseindia.com.  Originally developed for www.tradeoo.in
+visit --> https://github.com/ankitagarwal248/NSE1
 
 ## Installation
 
