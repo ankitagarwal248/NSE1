@@ -1,6 +1,6 @@
 # Nse1
 
-TODO: Write a gem description
+A Ruby gem for equity stock data from www.nseindia.com 
 
 ## Installation
 
@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+p Nse1::Stock.nifty
+p Nse1::Stock.list
+
+a = Nse1::Stock.new("COX&KINGS")
+p a.symbol
+p a.last
+p a.sector
+p a.fullname
+p a.lastUpdateTime
+p a.change
+p a.volume
+p a.openPrice
+p a.low52
+p a.previousClose
+p a.high52
+p a.dayHigh
+p a.dayLow
+p a.fulljson
 
 ## Contributing
 
@@ -29,6 +46,3 @@ TODO: Write usage instructions here
 5. Create new Pull Request
 
 
-remote is "nsegem"
-git remote add nsegem https://github.com/ankitagarwal248/NSE1.git
-git push -u nsegem master
